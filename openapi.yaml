@@ -3,6 +3,18 @@ info:
    title: "sam-api"
    description: "First API with IaC example"
    version: "1.0"
+x-amazon-apigateway-request-validators:
+    All:
+        validateRequestParameters: true
+        validateRequestBody: true
+    Body:
+        validateRequestParameters: false
+        validateRequestBody: true
+    Params:
+        validateRequestParameters: true
+        validateRequestBody: false
+
+x-amazon-apigateway-request-validator: Body
 
 paths:
 
@@ -24,6 +36,12 @@ paths:
                 responses:
                     default:
                         statusCode: "200"
+                requestBody:
+                    required: true
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/costCalculatorRequest'
                 responseTemplates:
                             application/json: | 
                                 #set($allParams = $input.params())
