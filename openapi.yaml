@@ -24,5 +24,27 @@ paths:
                 responses:
                     default:
                         statusCode: "200"
+                requestTemplates:
+                    application/json: |
+                        #set($inputRoot = $input.path("$"))
+                        {
+                            "price": "$inputRoot.price",
+                            "size": "$inputRoot.size",
+                            "unit": "$inputRoot.unit",
+                            "downPaymentAmount": $inputRoot.downPayment
+                        }
                 passthroughBehavior: "when_no_match"
                 type: "aws"
+components:
+    schemas:
+        costCalculatorRequest:
+            type: object
+            properties:
+                price:
+                    type: number
+                size:
+                    type: number
+                unit:
+                    type: string
+                downPayment:
+                    type: number

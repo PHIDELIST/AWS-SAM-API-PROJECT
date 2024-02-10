@@ -1,0 +1,10 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "SAM-API-PROJECT"
+resolve_s3 = true
+s3_prefix = "aws-sam-cli-managed-default-samclisourcebucket-12ebws373dtvc"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []
