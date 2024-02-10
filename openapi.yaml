@@ -1,6 +1,6 @@
 openapi: "3.0.1"
 info:
-   title: "my-first-api"
+   title: "sam-api"
    description: "First API with IaC example"
    version: "1.0"
 
